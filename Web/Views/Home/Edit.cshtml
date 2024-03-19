@@ -1,0 +1,44 @@
+@model Repository.Entities.Post
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+
+<h1>Edit Post</h1>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="PostId" />
+    
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Content"></label>
+        <textarea asp-for="Content" class="form-control" rows="5"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+            <label>Publish Status</label>
+            <div>
+                <input asp-for="PublishStatus" class="form-check-input" />
+                <label class="form-check-label" asp-for="PublishStatus">Published</label>
+            </div>
+    </div>
+    
+    <div class="form-group">
+            <label asp-for="CategoryId">Category</label>
+            <select asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.Categories, "CategoryId", "CategoryName"))" class="form-control">
+                <option value="">Select Category</option>
+            </select>
+            <span asp-validation-for="CategoryId" class="text-danger"></span>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</form>

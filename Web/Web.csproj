@@ -11,10 +11,16 @@
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="6.0.27" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.27">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="wwwroot\js\signalr\dist\browser\signalr.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\signalr\dist\browser\signalr.min.js" />
     </ItemGroup>
 
 </Project>
